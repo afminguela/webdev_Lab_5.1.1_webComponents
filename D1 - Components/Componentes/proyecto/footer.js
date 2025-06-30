@@ -16,18 +16,28 @@ class Footer{
     render(){
         const footer = document.createElement('footer');
         footer.classList.add('footer');
+        footer.textContent = this.copy;
 
-        footer.textContent =  copy;
+        document.body.appendChild(footer)
     }
 
     mount(targetId = 'footer'){
 
-        const mountpoint= document.getElementById(targetId){
+        const mountPoint= document.getElementById(targetId);
             if(!mountPoint){
-                console.error (`no se encontro el elemento de id = ${footer})
+                console.error (`no se encontro el elemento de id = ${targetId}`)
+                return;
             }
-        }
+        
+
+        this.injectStyles();
+        mountPoint.innerHTML ='';
+        mountPoint.appendChild(this.render())
     }
 
 
 }
+
+new Footer({
+    
+}).mount('footer');
