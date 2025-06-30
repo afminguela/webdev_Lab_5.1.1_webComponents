@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ejemplo de Modo Oscuro</title>
+
+    <style>
+      /* ===========================
+         Variables y Estilos Base
+         =========================== */
+      :root {
+        /* Colores por defecto (modo claro) */
+        --color-fondo: #ffffff;
+        --color-texto: #333333;
+        --color-primario: #008cff;
+      }
+
+      /* ===========================
+         Modo Oscuro
+         =========================== */
+      .dark-mode {
+        /* Sobrescribimos las variables para modo oscuro */
+        --color-fondo: #1f1f1f;
+        --color-texto: #f0f0f0;
+        --color-primario: #66aaff;
+      }
+
+      /* ===========================
+         Estilos Generales
+         =========================== */
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background-color: var(--color-fondo);
+        color: var(--color-texto);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      p {
+        max-width: 600px;
+        margin: 20px auto;
+        line-height: 1.5;
+      }
+
+      /* ===========================
+         Botón para Cambiar Tema
+         =========================== */
+      .theme-toggle-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--color-primario);
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .theme-toggle-btn:hover {
+        background-color: #005bbf;
+      }
+      .test{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ejemplo de Modo Oscuro</h1>
+    <p>
+      Este texto cambia de color dependiendo de si el modo oscuro está activo o no. Con sólo presionar el botón, puedes alternar entre modo claro y oscuro.
+    </p>
+    <p>
+      Texto que se salta el modo oscuro
+    </p>
+
+    <button id="toggleThemeBtn" class="theme-toggle-btn">
+      Activar Modo Oscuro
+    </button>
+
+    <script>
+      const toggleThemeBtn = document.getElementById('toggleThemeBtn');
+      let darkModeActive = false; // Controla si está en modo oscuro
+
+      toggleThemeBtn.addEventListener('click', () => {
+        // Añadimos o quitamos la clase "dark-mode" en body
+        document.body.classList.toggle('dark-mode');
+        // // Actualizamos la variable para saber el estado
+        darkModeActive = !darkModeActive;
+
+        // // Ajustamos el texto del botón según el estado
+        toggleThemeBtn.textContent = darkModeActive ? 'Desactivar Modo Oscuro' : 'Activar Modo Oscuro';
+      });
+    </script>
+  </body>
+</html
